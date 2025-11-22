@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Game - Login & Play</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+<body>
+    <!-- Login Section -->
+    <div id="auth-section" class="auth-container">
+        <div class="auth-card">
+            <h1 class="game-title">🐍 Snake Game</h1>
+            <p class="subtitle">Sign in to save your high scores</p>
+            <div id="g_id_onload"
+                data-client_id="634193896624-9ri71hpsaofsqov9pfckco1c17lf6l95.apps.googleusercontent.com"
+                data-callback="handleCredentialResponse" data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="filled_blue"
+                data-text="signin_with" data-shape="rectangular" data-logo_alignment="left">
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Section -->
+    <div id="game-section" class="hidden">
+        <div class="game-container">
+            <div class="game-header">
+                <h1 class="game-title">🐍 Snake Game</h1>
+                <div class="user-info">
+                    <img id="userAvatar" src="" alt="User" class="avatar" />
+                    <span id="userName"></span>
+                    <button id="logoutBtn" class="btn-logout">Logout</button>
+                </div>
+            </div>
+
+            <div class="game-board">
+                <canvas id="gameCanvas" width="400" height="400"></canvas>
+            </div>
+
+            <div class="game-info">
+                <div class="score-display">
+                    <span class="label">Current Score:</span>
+                    <span id="score" class="score-value">0</span>
+                </div>
+                <div class="controls-hint">
+                    Use arrow keys to control the snake
+                </div>
+            </div>
+
+            <div class="highscores-section">
+                <h2>🏆 Top 10 High Scores</h2>
+                <div id="highscores-list" class="highscores-list">
+                    Loading...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="snake.js"></script>
+</body>
+
+</html>
